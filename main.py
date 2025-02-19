@@ -26,8 +26,9 @@ with col3:
 
 # **Clear all stored session data only when explicitly requested**
 if clear_memory_clicked:
-    st.session_state.filtered_results = [] # Clear only the results, not the whole session state
-    st.rerun() # Restart the app to reflect changes
+    st.session_state.clear()  # Clears all memory
+    st.cache_data.clear()  # Clears cached data
+    st.rerun()  # Forces a full restart
 
 # Initialize the SalesAgent class
 sales_agent = SalesAgent(api_key)
@@ -35,6 +36,9 @@ sales_agent = SalesAgent(api_key)
 # Store results in session state
 if "results" not in st.session_state:
     st.session_state.results = {}
+
+if "results" in st.session_state:
+    st.session_state.results.clear()  # Clears stored agent responses
 
 # Display agent results
 if run_clicked:
@@ -75,3 +79,6 @@ if save_pdf_clicked and st.session_state.results:
     with open(pdf_file, "rb") as f:
         st.download_button("Download Report as PDF", f, file_name="multi_agent_report.pdf", mime="application/pdf")
     os.remove(pdf_file)  # Ensure the file is removed after download
+
+    #example:
+    #The impact of AI in financial fraud detection
