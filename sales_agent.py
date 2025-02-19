@@ -25,7 +25,6 @@ class SalesAgent:
                 "Auto-generate and post weekly thought leadership content on {topic}. "  # ✅ Dynamic topic insertion
                 "Share relevant case studies, whitepapers, and success stories tailored to the provided query. "
                 "Monitor post engagement and DM hot leads. Use AI-generated comments to start discussions. "
-                "You should NOT assume the topic is about 'Computer Vision AI' unless explicitly mentioned by the user."
             ),
             "AI Deal Closing & Scheduling Agent 📅💰": (
                 "You are an AI agent that moves warm leads toward a sale. Automate meeting scheduling (syncs with Calendly or HubSpot). "
